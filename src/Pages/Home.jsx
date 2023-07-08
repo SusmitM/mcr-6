@@ -27,7 +27,7 @@ export const Home = () => {
       <SelectCuisineTab />
       <Box className="DisplayContainer">
         {
-          availableRestaurants?.length===0 && <Typography>Please select a Cuisine Type</Typography>
+          availableRestaurants?.length===0 && <Typography variant="h6">Welcome 🙏🙏 Please select a Cuisine Type</Typography>
         }
          {
           availableRestaurants?.length>0 && 

@@ -8,7 +8,7 @@ import { RatingFormModal } from "../Component/RatingFormModal";
 
 export const RestaurantDetail = () => {
   const navigate=useNavigate()
-  const { dataState } = useDataContext();
+  const { dataState,setSelectedCuisine } = useDataContext();
   const { id } = useParams();
 
   const selectedRestaurant = dataState?.restaurantData?.find(
@@ -31,8 +31,8 @@ export const RestaurantDetail = () => {
     <Box className="DetailsContainer" sx={{minHeight:"100vh",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
       
       <Paper sx={{width:"600px",minHeight:"450px",padding:"10px"}} elevation={5} >
-      <Box className="CardHeader">
-      <span onClick={()=>navigate("/")}><ArrowBackIcon /> </span><Typography variant="h3">{name}</Typography>
+      <Box className="CardHeader" sx={{mb:3}}>
+      <span onClick={()=>{navigate("/");setSelectedCuisine("")}}><ArrowBackIcon /> </span><Typography variant="h3">{name}</Typography>
         </Box>
         <Box sx={{display:"flex",justifyContent:"space-between"}}>
             <Typography variant="body2" color="text.secondary">
@@ -47,9 +47,9 @@ export const RestaurantDetail = () => {
             <Typography variant="body2" color="text.secondary">
                 Average Rating:{averageRating}
             </Typography>
-        <Divider/>
+        <Divider  sx={{mb:2,mt:1}}/>
         <Box className="CardBody">
-        <Typography variant="h5">Reviews</Typography>
+        <Typography variant="h5"  sx={{mb:1}}>Reviews</Typography>
         <Box className="reviewContainer">
           {
             ratings?.map(ratingData=>{

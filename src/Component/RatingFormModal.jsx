@@ -73,7 +73,7 @@ setUserInput({rating:"",comment:"",pp:"https://res.cloudinary.com/dqlasoiaw/imag
               className="ratingSection"
               sx={{ display: "flex", justifyContent: "space-around" }}
             >
-              <Typography>Rating:</Typography>
+              <Typography variant="h6">Rating:</Typography>
 
         <FormControl   sx={{ m: 1, minWidth: 120 }} size="small">
         <InputLabel>Rating</InputLabel>
@@ -96,13 +96,13 @@ setUserInput({rating:"",comment:"",pp:"https://res.cloudinary.com/dqlasoiaw/imag
               className="commentSection"
               sx={{ mt:"15px",display: "flex", justifyContent: "space-around" }}
             >
-              <Typography>Comment:</Typography>
+              <Typography variant="h6">Comment:</Typography>
               <TextField
               
               sx={{backgroundColor:"white"}}
                 placeholder="Add Review"
                 multiline
-                rows={1}
+                rows={2}
                 value={userInput?.comment}
                 onChange={(e)=>handleCommentChange(e.target.value)}
               />
