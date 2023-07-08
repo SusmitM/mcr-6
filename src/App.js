@@ -1,15 +1,30 @@
 
-import { Box,Typography } from '@mui/material';
+import { Box,Typography, createTheme,ThemeProvider } from '@mui/material';
 import './App.css';
+import { AllRoutes } from './Routes/AllRoutes';
 
+
+
+
+const { palette } = createTheme();
+const { augmentColor } = palette;
+const createColor = (mainColor) => augmentColor({ color: { main: mainColor } });
+const theme = createTheme({
+  palette: {
+    anger: createColor('#c53030'),
+    peace: createColor('#14d532'),
+    
+  },
+});
 function App() {
   return (
     <div className="App">
-     <Box>
-    
-
-      <Typography variant="h1">  MCR-6</Typography>
+       <ThemeProvider theme={theme}>
+       <Box>
+      <AllRoutes/>
      </Box>
+       </ThemeProvider>
+     
     </div>
   );
 }
