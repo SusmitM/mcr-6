@@ -19,6 +19,7 @@ export const Home = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          gap:"4rem"
         }}
       >
         <Typography variant="h3">Food Ordering App</Typography>
@@ -33,7 +34,7 @@ export const Home = () => {
             availableRestaurants?.map(restaurantsData =>{
               return (
                 <>
-                <Typography>Dishes by {restaurantsData?.name}</Typography>
+                <Typography variant="h5">Dishes by {restaurantsData?.name}</Typography>
                 <hr/>
                 <Box className="menuItemContainer" sx={{display:"flex",flexWrap:"wrap"}}>
                 {

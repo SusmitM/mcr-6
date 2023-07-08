@@ -9,11 +9,11 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
     height:300,
-  bgcolor: "red",
+  bgcolor: "#dd4949",
   color:"white",
   border: "2px solid #000",
   boxShadow: 24,
-  p: 1,
+  p: 3,
   textAlign: "center",
   borderRadius:"15px"
 };
@@ -37,7 +37,7 @@ setUserInput({rating:"",comment:"",pp:"https://res.cloudinary.com/dqlasoiaw/imag
 
   }
   const submitComment=()=>{
-    console.log(userInput)
+   
     if(userInput.rating==="" || userInput.comment===""){
         alert("Invalid data")
     }
@@ -66,9 +66,9 @@ setUserInput({rating:"",comment:"",pp:"https://res.cloudinary.com/dqlasoiaw/imag
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <Box className="ModalHeader" sx={{marginBottom:"25px"}}>
-            <Typography variant="h4">Add Your Review</Typography>
+            <Typography variant="h4" sx={{textDecoration: 'underline'}}>Add Your Review</Typography>
           </Box>
-          <Box className="ModalBody">
+          <Box className="ModalBody" sx={{mb:"15px"}}>
           <Box
               className="ratingSection"
               sx={{ display: "flex", justifyContent: "space-around" }}
@@ -80,7 +80,7 @@ setUserInput({rating:"",comment:"",pp:"https://res.cloudinary.com/dqlasoiaw/imag
         <Select
           
           value={userInput?.rating}
-          label="Age"
+          label="Rating"
           onChange={handleRatingChange}
         >
           <MenuItem value={1}>1</MenuItem>
@@ -92,23 +92,25 @@ setUserInput({rating:"",comment:"",pp:"https://res.cloudinary.com/dqlasoiaw/imag
       </FormControl>   
             </Box>
             <Box
+           
               className="commentSection"
-              sx={{ display: "flex", justifyContent: "space-around" }}
+              sx={{ mt:"15px",display: "flex", justifyContent: "space-around" }}
             >
               <Typography>Comment:</Typography>
               <TextField
-                id="standard-multiline-static"
+              
+              sx={{backgroundColor:"white"}}
                 placeholder="Add Review"
                 multiline
-                rows={2}
+                rows={1}
                 value={userInput?.comment}
                 onChange={(e)=>handleCommentChange(e.target.value)}
               />
             </Box>
           </Box>
-          <Button onClick={()=>submitComment()}>Submit</Button>
+          <Button color="rest" variant="contained" onClick={()=>submitComment()}>Submit</Button>
         </Box>
       </Modal>
     </div>
-  );
+  ); 
 };

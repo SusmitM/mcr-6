@@ -13,6 +13,7 @@ const theme = createTheme({
   palette: {
     anger: createColor('#c53030'),
     peace: createColor('#14d532'),
+    rest:createColor('#FFFFFF')
     
   },
 });

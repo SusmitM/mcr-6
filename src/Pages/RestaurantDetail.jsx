@@ -1,10 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useDataContext } from "../Context/DataContext";
+
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Avatar, Box, Button, Divider, Paper, Typography } from "@mui/material";
 import { RatingFormModal } from "../Component/RatingFormModal";
 
 export const RestaurantDetail = () => {
+  const navigate=useNavigate()
   const { dataState } = useDataContext();
   const { id } = useParams();
 
@@ -22,13 +25,14 @@ export const RestaurantDetail = () => {
     description,
   } = selectedRestaurant;
 
-  const averageRating=ratings.reduce((total,crr)=>total=total+crr.rating,0)/ratings.length
+  const averageRating=(ratings.reduce((total,crr)=>total=total+crr.rating,0)/ratings.length).toFixed(2)
 
   return (
     <Box className="DetailsContainer" sx={{minHeight:"100vh",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-      <Paper sx={{width:"600px",padding:"10px"}} >
+      
+      <Paper sx={{width:"600px",minHeight:"450px",padding:"10px"}} elevation={5} >
       <Box className="CardHeader">
-          <Typography variant="h3">{name}</Typography>
+      <span onClick={()=>navigate("/")}><ArrowBackIcon /> </span><Typography variant="h3">{name}</Typography>
         </Box>
         <Box sx={{display:"flex",justifyContent:"space-between"}}>
             <Typography variant="body2" color="text.secondary">
@@ -56,8 +60,8 @@ export const RestaurantDetail = () => {
                   <Avatar alt={ratingData?.revName} src={ratingData?.pp} />
                   <Typography>{ratingData?.revName}</Typography>
                   </span>
-                  <Box className="ratingBox" sx={{height:"20px",width:"30px",backgroundColor:"green",color:"white",textAlign:"center"}}>
-                  {ratingData?.rating}
+                  <Box className="ratingBox" sx={{borderRadius:"7px",height:"30px",width:"35px",backgroundColor:"green",color:"white",textAlign:"center"}}>
+                  ⭐{ratingData?.rating}
 
                   </Box>
                   </Box>

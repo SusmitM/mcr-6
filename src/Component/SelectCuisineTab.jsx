@@ -20,6 +20,7 @@ export const SelectCuisineTab = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          gap:"10px"
         }}
       >
         <Typography variant="h4">Select Your Cuisine</Typography>
